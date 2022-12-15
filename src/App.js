@@ -1,23 +1,35 @@
-import logo from './logo.svg';
+import { Col, Row } from 'react-bootstrap';
 import './App.css';
+import SideBar from './components/SideBar';
+import { Routes, Route} from "react-router-dom";
+import Leaflet from './components/Leaflet';
+import MenuTwo from './components/MenuTwo';
+import TableData from './components/TableData';
+import MenuOne from './pages/MenuOne';
+import Maps from './components/Maps';
+import MapsTwo from './components/MapsTwo';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Row>
+        <Col className="col-3 ">
+          <div className='sidebar-item'>
+            <SideBar/>
+          </div>
+        </Col>
+        <Col>
+          <Routes>
+            <Route exac path="/" element={<Leaflet />} />
+            <Route exac path="/menu2" element={<MenuTwo />} />
+            <Route exac path="/table" element={<TableData/>} />
+            <Route exac path="/maps-one" element={<Maps/>} />
+            <Route exac path="/maps-two" element={<MapsTwo/>} />
+          </Routes>
+        </Col>
+      </Row>
+
+      
     </div>
   );
 }
